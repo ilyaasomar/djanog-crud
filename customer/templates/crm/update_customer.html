@@ -1,0 +1,69 @@
+{% extends 'crm/index.html' %} {% block content %}
+<form action="{% url 'update' %}" method="POST">
+  {% csrf_token %}
+  <!-- <div class="form-group">{{ customer_form.as_p }}</div> -->
+  <div class="card">
+    <div class="card-header">
+      <h2>Update Customer</h2>
+    </div>
+    <div class="card-body">
+      <div class="mb-3">
+        <input
+          type="hidden"
+          name="customer_id"
+          class="form-control"
+          value="{{ customer.id }}"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Full Name</label>
+        <input
+          type="text"
+          name="full_name"
+          class="form-control"
+          value="{{ customer.customer_name }}"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Phone</label>
+        <input
+          type="text"
+          name="phone"
+          class="form-control"
+          value="{{ customer.phone }}"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email</label>
+        <input
+          type="email"
+          name="email"
+          class="form-control"
+          value="{{ customer.email }}"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input
+          type="password"
+          name="password"
+          class="form-control"
+          value="{{ customer.password }}"
+          id="exampleInputPassword1"
+        />
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </div>
+  <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+</form>
+{% endblock %}
